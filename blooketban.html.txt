@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blooket - Account Suspended</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Titan+One&family=Nunito:wght@400;700;900&display=swap');
+
+        body {
+            background-color: #3A44A1; /* Blooket's dark blue/purple */
+            font-family: 'Nunito', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .ban-container {
+            background-color: #FFFFFF;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 90%;
+            border: 5px solid #F2B822; /* Blooket yellow */
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .icon {
+            font-size: 80px;
+            color: #FF4B4B; /* A strong red */
+            animation: popIn 0.5s ease-out 0.2s backwards;
+        }
+
+        @keyframes popIn {
+             from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            font-family: 'Titan One', cursive;
+            color: #2F3880; /* Blooket dark blue text */
+            font-size: 3em;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin: 15px 0;
+        }
+
+        .reason {
+            background-color: #ffebee;
+            border: 1px solid #e57373;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .reason strong {
+            color: #d32f2f;
+        }
+        
+        .ban-details {
+            font-size: 0.9em;
+            color: #777;
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .button {
+            background-color: #4A90E2; /* A standard blue */
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 900;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .button:hover {
+            background-color: #357ABD;
+            transform: translateY(-2px);
+        }
+
+        .button:disabled {
+            background-color: #9e9e9e;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        #appeal-status {
+            margin-top: 15px;
+            font-weight: bold;
+            height: 20px;
+            transition: color 0.5s;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ban-container">
+        <div class="icon">🚫</div>
+        <h1>Account Suspended</h1>
+        <p>Your access to Blooket has been revoked due to a violation of our Terms of Service.</p>
+        
+        <div class="reason">
+            <strong>Reason:</strong> Use of third-party scripts or unauthorized cheats to gain an unfair advantage in games.
+        </div>
+
+        <p>All Blooks, coins, and account progress have been permanently forfeited. This decision is not taken lightly and is essential to maintaining a fair and enjoyable environment for all players.</p>
+
+        <div class="ban-details">
+            Username: Player12345<br>
+            Ban ID: BK-7T5K9P2R
+        </div>
+
+        <button class="button" id="appeal-button">Appeal This Decision</button>
+        <div id="appeal-status"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const appealButton = document.getElementById('appeal-button');
+            const appealStatus = document.getElementById('appeal-status');
+
+            appealButton.addEventListener('click', function() {
+                // Disable the button and show a processing message
+                appealButton.disabled = true;
+                appealButton.textContent = 'Submitting Appeal...';
+                appealStatus.style.color = '#333';
+                appealStatus.textContent = 'Analyzing account data...';
+
+                // Simulate a server delay and then deliver the bad news
+                setTimeout(function() {
+                    appealStatus.style.color = '#FF4B4B';
+                    appealStatus.innerHTML = '<strong>Appeal Status: Denied.</strong> The evidence is conclusive.';
+                    appealButton.textContent = 'Decision is Final';
+                }, 2500); // 2.5 second delay
+            });
+        });
+    </script>
+
+</body>
+</html>
